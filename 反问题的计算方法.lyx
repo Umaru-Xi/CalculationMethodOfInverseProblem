@@ -1,0 +1,2045 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-article
+\use_default_options true
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman "default" "STSong"
+\font_sans "default" "STHeiti"
+\font_typewriter "default" "STFangsong"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style plain
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+基本定义
+\end_layout
+
+\begin_layout Enumerate
+参考教材: An Introduction of Mathmatical Theory of Inverse Problem(前三章), Kirsch;
+\end_layout
+
+\begin_layout Enumerate
+反问题举例:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+确定空间分布物体的密度: 即已知
+\begin_inset Formula $u(x,y,z)=\iiint\limits _{\Omega}\frac{\rho(\xi,\eta,\zeta)d\xi d\eta d\zeta}{\left(\sqrt{(x-\xi)^{2}+(y-\eta)^{2}+(z-\zeta)^{2}}\right)^{3}}$
+\end_inset
+
+, 求
+\begin_inset Formula $\rho(\xi,\eta,\zeta)$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+逆热传导方程的反问题: 根据热传导方程
+\begin_inset Formula $\begin{cases}
+\frac{\partial u}{\partial t}=a^{2}\frac{\partial^{2}u}{\partial x^{2}}+f(x,t) & x\in\mathbb{R}\\
+u|_{t=0}=\phi(x)
+\end{cases}$
+\end_inset
+
+, 已知正问题的值
+\begin_inset Formula $u(x,t)=\frac{1}{2a\sqrt{\pi t}}\int_{-\infty}^{+\infty}\phi(\xi)e^{-\frac{(x-\xi)^{2}}{4a^{2}t}}d\xi+\frac{1}{2a\sqrt{\pi}}\int_{0}^{t}\int_{-\infty}^{+\infty}\frac{f(\xi,\tau)}{\sqrt{t-\tau}}e^{-\frac{(x-\xi)}{4a^{2}\sqrt{t-\tau}}}d\tau$
+\end_inset
+
+, 求
+\begin_inset Formula $\phi(x)=u(x,0)$
+\end_inset
+
+;
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+适定性(well-posedness): 设
+\begin_inset Formula $X,Y$
+\end_inset
+
+是赋范空间, 算子
+\begin_inset Formula $K:X\to Y$
+\end_inset
+
+, 
+\begin_inset Formula $Kx=y$
+\end_inset
+
+称为适定的若解
+\begin_inset Formula $x$
+\end_inset
+
+满足:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+存在性: 对每个
+\begin_inset Formula $y\in Y$
+\end_inset
+
+, 至少有一个
+\begin_inset Formula $x\in X$
+\end_inset
+
+, 满足
+\begin_inset Formula $Kx=y$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+唯一性: 对每个
+\begin_inset Formula $y\in Y$
+\end_inset
+
+, 至多由一个
+\begin_inset Formula $x\in X$
+\end_inset
+
+, 满足
+\begin_inset Formula $Kx=y$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+稳定性: 
+\begin_inset Formula $x$
+\end_inset
+
+连续依赖于
+\begin_inset Formula $y$
+\end_inset
+
+.
+ 即若
+\begin_inset Formula $\{x_{n}\}\subseteq X$
+\end_inset
+
+, 
+\begin_inset Formula $\lim\limits _{n\to\infty}Kx_{n}=Kx$
+\end_inset
+
+, 则
+\begin_inset Formula $x_{n}\to x$
+\end_inset
+
+;
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+不适定性(ill-posedness): 不满足任意适定性条件, 也称为病态性;
+\end_layout
+
+\begin_layout Enumerate
+设
+\begin_inset Formula $X,Y$
+\end_inset
+
+是赋范空间, 线性紧算子
+\begin_inset Formula $K:X\to Y$
+\end_inset
+
+, 记核空间
+\begin_inset Formula $\mathscr{N}(K)=\{x\in X:Kx=0\}$
+\end_inset
+
+.
+ 若商空间的维数无穷
+\begin_inset Formula $\dim\frac{X}{\mathscr{N}(K)}=\infty$
+\end_inset
+
+, 则
+\begin_inset Formula $\exists\{x_{n}\}\subset X$
+\end_inset
+
+满足
+\begin_inset Formula $Kx_{n}=0$
+\end_inset
+
+但
+\begin_inset Formula $\{x_{n}\}$
+\end_inset
+
+不收敛;
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+特别地, 
+\begin_inset Formula $K^{-1}$
+\end_inset
+
+是无界的;
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+不适定问题举例:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+(反问题)第一类Fredholm积分方程: 对于
+\begin_inset Formula $\int_{a}^{b}K(x,t)Z(t)dt=u(x)$
+\end_inset
+
+, 
+\begin_inset Formula $x\in[c,d]$
+\end_inset
+
+, 已知
+\begin_inset Formula $u(x)$
+\end_inset
+
+求
+\begin_inset Formula $Z(t)$
+\end_inset
+
+.
+ 其中核函数
+\begin_inset Formula $K(x,t)$
+\end_inset
+
+在
+\begin_inset Formula $[c,d]\times[a,b]$
+\end_inset
+
+上连续;
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+已知
+\begin_inset Formula $Z_{1}(t)$
+\end_inset
+
+是
+\begin_inset Formula $u_{1}(x)$
+\end_inset
+
+的解, 构造
+\begin_inset Formula $Z_{2}(t)=Z_{1}(t)+N\sin\omega t$
+\end_inset
+
+,
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+得到
+\begin_inset Formula $u_{2}(x)=\int_{a}^{b}K(x,t)Z_{2}(t)dt$
+\end_inset
+
+
+\begin_inset Formula $=\int_{a}^{b}K(x,t)\left[Z_{1}(t)+N\sin\omega t\right]dt$
+\end_inset
+
+
+\begin_inset Formula $=u_{1}(x)+N\int_{a}^{b}K(x,t)\sin\omega tdt$
+\end_inset
+
+;
+\end_layout
+
+\end_deeper
+\begin_layout Quote
+固定
+\begin_inset Formula $N$
+\end_inset
+
+, 令
+\begin_inset Formula $\omega\to\infty$
+\end_inset
+
+充分大, 则由Riemann-Lebesgue引理:
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+因为
+\begin_inset Formula $K(x,t)$
+\end_inset
+
+连续, 则
+\begin_inset Formula $\int_{a}^{b}K(x,t)\sin\omega tdt\to0$
+\end_inset
+
+充分小;
+\end_layout
+
+\end_deeper
+\begin_layout Quote
+由
+\begin_inset Formula $||u_{1}(x)-u_{2}(x)||_{2}$
+\end_inset
+
+
+\begin_inset Formula $=\left|\left|N\int_{a}^{b}K(x,t)\sin\omega tdt\right|\right|_{2}$
+\end_inset
+
+
+\begin_inset Formula $=|N|\left\{ \int_{c}^{d}\left[\int_{a}^{b}K(x,t)\sin\omega tdt\right]^{2}dx\right\} ^{\frac{1}{2}}\to0$
+\end_inset
+
+, 
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+得
+\begin_inset Formula $||Z_{1}(t)-Z_{2}(t)||_{2}$
+\end_inset
+
+
+\begin_inset Formula $=|N|\left\{ \int_{a}^{b}\sin^{2}\omega tdt\right\} ^{\frac{1}{2}}$
+\end_inset
+
+
+\begin_inset Formula $=|N|\sqrt{\frac{b-a}{2}-\frac{1}{4\omega}(\sin2b\omega-\sin2a\omega)}$
+\end_inset
+
+=
+\begin_inset Formula $|N|\sqrt{\frac{b-a}{2}+\frac{1}{2}\sin(b-a)\omega\cdot\cos(b+a)\omega}$
+\end_inset
+
+;
+\end_layout
+
+\end_deeper
+\begin_layout Quote
+当
+\begin_inset Formula $\omega\to\infty$
+\end_inset
+
+充分大, 
+\begin_inset Formula $||Z_{1}(t)-Z_{2}(t)||_{2}\to|N|\sqrt{\frac{b-a}{2}}$
+\end_inset
+
+.
+ 即
+\begin_inset Formula $u_{2}\to u_{1}$
+\end_inset
+
+, 但
+\begin_inset Formula $Z_{2}\nrightarrow Z_{1}$
+\end_inset
+
+;
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+\begin_inset Formula $||Z_{1}(t)-Z_{2}(t)||_{\infty}=\max\limits _{t\in[a,b]}|N\sin\omega t|$
+\end_inset
+
+
+\begin_inset Formula $=|N|$
+\end_inset
+
+;
+\end_layout
+
+\end_deeper
+\begin_layout Quote
+即测量值
+\begin_inset Formula $u_{2}$
+\end_inset
+
+相对精确值
+\begin_inset Formula $u_{1}$
+\end_inset
+
+存在充分小的误差, 但反问题的解的误差不一定充分小;
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+(正问题)二维Laplace方程的Cauchy问题: 对于定解问题
+\begin_inset Formula $\begin{cases}
+\Delta u(x,y)=0 & -\infty<x<+\infty\\
+u(x,0)=f(x) & \left.\frac{\partial u(x,y)}{\partial y}\right|_{y=0}=\varphi(x)
+\end{cases}$
+\end_inset
+
+, 其中
+\begin_inset Formula $f(x),\varphi(x)$
+\end_inset
+
+已知, 求
+\begin_inset Formula $u(x,y)$
+\end_inset
+
+;
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+取
+\begin_inset Formula $f_{1}(x)\equiv0,\varphi_{1}(x)=\frac{\sin ax}{a}(a>0)$
+\end_inset
+
+, 则
+\begin_inset Formula $u_{1}(x,y)=\frac{1}{a^{2}}\sin ax\cdot\sinh ay$
+\end_inset
+
+是该问题的解;
+\end_layout
+
+\begin_layout Quote
+取
+\begin_inset Formula $f_{2}(x)=0$
+\end_inset
+
+, 
+\begin_inset Formula $\varphi_{2}(x)=0$
+\end_inset
+
+, 则
+\begin_inset Formula $u_{2}(x,y)=0$
+\end_inset
+
+;
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+则
+\begin_inset Formula $||f_{1}(x)-f_{2}(x)||_{\infty}=0$
+\end_inset
+
+, 
+\begin_inset Formula $||\varphi_{1}(x)-\varphi_{2}(x)||_{\infty}$
+\end_inset
+
+
+\begin_inset Formula $=\sup\limits _{x\in\mathbb{R}}\left|\frac{\sin ax}{a}\right|$
+\end_inset
+
+
+\begin_inset Formula $=\frac{1}{a}$
+\end_inset
+
+, 
+\begin_inset Formula $||u_{1}(x)-u_{2}(x)||_{\infty}$
+\end_inset
+
+
+\begin_inset Formula $=\sup\limits _{x,y}\left|\frac{1}{a^{2}}\sin ax\cdot\sinh ay\right|$
+\end_inset
+
+
+\begin_inset Formula $=\frac{1}{a^{2}}\sinh ay$
+\end_inset
+
+(当
+\begin_inset Formula $a>0$
+\end_inset
+
+充分大
+\begin_inset Formula $a\to\infty$
+\end_inset
+
+, 该范数任意大);
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+(反问题)计算机层析成像(CT)问题: 已知射线强度为
+\begin_inset Formula $I$
+\end_inset
+
+, 射线围绕被观测组织参考系旋转的角度为
+\begin_inset Formula $\delta$
+\end_inset
+
+, 射线经过路程参数化为
+\begin_inset Formula $u$
+\end_inset
+
+, 组织的射线吸收率为常数
+\begin_inset Formula $\gamma$
+\end_inset
+
+, 组织的密度为
+\begin_inset Formula $\rho$
+\end_inset
+
+ ,则
+\begin_inset Formula $dI=-\gamma\rho Idu$
+\end_inset
+
+(解为
+\begin_inset Formula $\ln I(u)=-\gamma\int_{u_{0}}^{u}\rho(x,y)du$
+\end_inset
+
+).
+ 射线源到组织参考系的距离为
+\begin_inset Formula $s$
+\end_inset
+
+, 测量点的坐标为
+\begin_inset Formula $se^{i\delta}+uie^{i\delta}$
+\end_inset
+
+, 则相对强度损失
+\begin_inset Formula $\ln I(u)=-\gamma\int_{u_{0}}^{u}\rho(se^{i\delta}+uie^{i\delta})du$
+\end_inset
+
+.
+ 求组织的密度分布
+\begin_inset Formula $\rho$
+\end_inset
+
+;
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+定义Radon变换: 
+\begin_inset Formula $R\rho:=\int_{-\infty}^{+\infty}\rho(se^{i\delta}+uie^{i\delta})du$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Quote
+假定
+\begin_inset Formula $\rho$
+\end_inset
+
+径向对称为
+\begin_inset Formula $\rho(r)$
+\end_inset
+
+, 射线为
+\begin_inset Formula $(x,0)$
+\end_inset
+
+, 则相对射线强度
+\begin_inset Formula $v(x):=\ln I(\infty)=-2\gamma\int_{0}^{\infty}\rho(\sqrt{x^{2}+u^{2}})du$
+\end_inset
+
+,
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+令
+\begin_inset Formula $r^{2}=x^{2}+u^{2}$
+\end_inset
+
+, 则
+\begin_inset Formula $v(x)=-2\gamma\int_{x}^{R}\frac{r}{\sqrt{r^{2}-x^{2}}}\rho(r)dr$
+\end_inset
+
+, 其中
+\begin_inset Formula $R\to\infty$
+\end_inset
+
+是组织的最大厚度;
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+(反问题)微分问题: 已知积分方程
+\begin_inset Formula $y(t)=\int_{0}^{t}x(s)ds$
+\end_inset
+
+和
+\begin_inset Formula $y(t)$
+\end_inset
+
+, 求
+\begin_inset Formula $x(t)=y'(t)$
+\end_inset
+
+;
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+对
+\begin_inset Formula $y(t)$
+\end_inset
+
+作扰动
+\begin_inset Formula $y(t)+\delta\sin\frac{t}{\delta^{2}}$
+\end_inset
+
+, 对应的解
+\begin_inset Formula $x(t)=y'(t)+\frac{1}{\delta}\cos\frac{t}{\delta^{2}}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Quote
+考虑
+\begin_inset Formula $K:X\to Y$
+\end_inset
+
+, 
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+取
+\begin_inset Formula $K:C[0,1]\to C[0,1]$
+\end_inset
+
+且
+\begin_inset Formula $y(0)=0$
+\end_inset
+
+, 则
+\begin_inset Formula $||y_{1}-y_{2}||_{\infty}=\max\limits _{t\in[0,1]}\left|\delta\sin\frac{t}{\delta^{2}}\right|=\delta$
+\end_inset
+
+, 
+\begin_inset Formula $||x_{1}-x_{2}||_{\infty}=\max\limits _{s\in[0,1]}\left|\frac{1}{\delta}\cos\frac{t}{\delta^{2}}\right|=\frac{1}{\delta}$
+\end_inset
+
+.
+ 此时方程不适定;
+\end_layout
+
+\begin_layout Quote
+取
+\begin_inset Formula $K:C[0,1]\to Y:=\{y\in C^{1}[a,b],\texttt{且}y(0)=0\}$
+\end_inset
+
+, 则
+\begin_inset Formula $||y||_{Y}=\max|y'|$
+\end_inset
+
+, 
+\begin_inset Formula $||y_{1}-y_{2}||_{Y}=\max\limits _{t}\left|\frac{1}{\delta}\cos\frac{t}{\delta^{2}}\right|=\frac{1}{\delta}$
+\end_inset
+
+.
+ 此时方程适定;
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+紧积分算子定理: 设
+\begin_inset Formula $J=[a.b]$
+\end_inset
+
+, 且
+\begin_inset Formula $K(s,t)$
+\end_inset
+
+在
+\begin_inset Formula $[a,b]$
+\end_inset
+
+上连续, 则
+\begin_inset Formula $(TX)(s)=\int_{a}^{b}K(s,t)X(t)dt$
+\end_inset
+
+所定义的算子 
+\begin_inset Formula $K:J\to J$
+\end_inset
+
+是紧算子;
+\end_layout
+
+\begin_layout Enumerate
+最坏的误差: 对于
+\begin_inset Formula $\int_{0}^{t}x(s)ds=y(t)$
+\end_inset
+
+, 
+\begin_inset Formula $t\in[0,1]$
+\end_inset
+
+, 
+\begin_inset Formula $x\in C[0,1]$
+\end_inset
+
+;
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+已知: 
+\begin_inset Formula $y(t)$
+\end_inset
+
+且
+\begin_inset Formula $||y''||_{\infty}\le E$
+\end_inset
+
+.
+ 实际观测值为
+\begin_inset Formula $\tilde{y}(t)$
+\end_inset
+
+, 误差
+\begin_inset Formula $z(t):=y(t)-\tilde{y}(t)$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Quote
+条件: 
+\begin_inset Formula $z(0)=z'(0)=0$
+\end_inset
+
+且
+\begin_inset Formula $z'(t)\ge0$
+\end_inset
+
+, 观测误差
+\begin_inset Formula $||z||_{\infty}<\delta$
+\end_inset
+
+;
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+计算: 
+\begin_inset Formula $|x(t)-\tilde{x}(t)|^{2}=|z'(t)|^{2}$
+\end_inset
+
+
+\begin_inset Formula $=\left|\int_{0}^{t}\frac{d}{ds}|z'(t)|^{2}ds\right|$
+\end_inset
+
+
+\begin_inset Formula $=\int_{0}^{t}2z'(s)z''(s)ds$
+\end_inset
+
+
+\begin_inset Formula $\le4E\int_{0}^{t}z'(s)ds$
+\end_inset
+
+
+\begin_inset Formula $=4Ez(t)$
+\end_inset
+
+; 
+\end_layout
+
+\end_deeper
+\begin_layout Quote
+结论: 
+\begin_inset Formula $|x-\tilde{x}|_{\infty}^{2}\le4E\delta$
+\end_inset
+
+, 即
+\begin_inset Formula $||x-\tilde{x}||_{\infty}\le2\sqrt{E\delta}$
+\end_inset
+
+;
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+范数强弱: 已知线性有界算子
+\begin_inset Formula $K:X\to Y$
+\end_inset
+
+, Banach空间
+\begin_inset Formula $X,Y$
+\end_inset
+
+, 子空间
+\begin_inset Formula $X_{1}\subset X$
+\end_inset
+
+, 定义
+\begin_inset Formula $X_{1}$
+\end_inset
+
+上的范数为
+\begin_inset Formula $||\cdot||_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $X$
+\end_inset
+
+上的范数为
+\begin_inset Formula $||\cdot||$
+\end_inset
+
+.
+ 若
+\begin_inset Formula $\forall x\in X_{1}$
+\end_inset
+
+,
+\begin_inset Formula $\exists c>0,s.t.||x||\le c||x||_{1}$
+\end_inset
+
+, 则称
+\begin_inset Formula $||\cdot||_{1}$
+\end_inset
+
+是比
+\begin_inset Formula $||\cdot||$
+\end_inset
+
+更强的范数;
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+记号: 对于误差
+\begin_inset Formula $\delta$
+\end_inset
+
+, 理想观测值二阶导数上界
+\begin_inset Formula $E$
+\end_inset
+
+, 记
+\begin_inset Formula $F(\delta,E,||\cdot||_{1}):=\sup\{||x||_{1}:||Kx||\le\delta,||x||_{1}\le E\}$
+\end_inset
+
+.
+ 当
+\begin_inset Formula $\delta\to0$
+\end_inset
+
+, 有
+\begin_inset Formula $F\to0$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+注意: 
+\begin_inset Formula $||\cdot||_{1}$
+\end_inset
+
+不是指
+\begin_inset Formula $1-$
+\end_inset
+
+范数;
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+引理: 设
+\begin_inset Formula $K:X\to Y$
+\end_inset
+
+是线性紧算子, 且
+\begin_inset Formula $\dim\frac{X}{N(K)}=\infty$
+\end_inset
+
+, 则存在
+\begin_inset Formula $c,\delta_{0}$
+\end_inset
+
+, 使得
+\begin_inset Formula $\forall\delta\in(0,\delta_{0}),F(\delta,E,||\cdot||_{1})\ge c$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+紧算子奇异分解(singular value decomposition): 设
+\begin_inset Formula $K:X\to Y$
+\end_inset
+
+是紧算子, 
+\begin_inset Formula $X,Y$
+\end_inset
+
+是Hilbert空间, 伴随算子(共轭算子)
+\begin_inset Formula $K^{*}:Y\to X$
+\end_inset
+
+, 其中
+\begin_inset Formula $\mu_{1}\ge\mu_{2}\ge\mu_{3}...>0$
+\end_inset
+
+是
+\begin_inset Formula $K$
+\end_inset
+
+的奇异值, 则存在标准正交系
+\begin_inset Formula $\{x_{j}\}\subset X,\{y_{j}\}\subset Y$
+\end_inset
+
+.
+ 有
+\begin_inset Formula $Kx_{j}=u_{j}y_{j}$
+\end_inset
+
+, 
+\begin_inset Formula $K^{*}y_{j}=u_{j}x_{j}$
+\end_inset
+
+, 
+\begin_inset Formula $j\in J$
+\end_inset
+
+, 且
+\begin_inset Formula $x=x_{0}+\sum\limits _{j\in J}(x,x_{j})x_{j}$
+\end_inset
+
+, 
+\begin_inset Formula $Kx=\sum\limits _{j\in J}u_{j}(x,x_{j})y_{j}$
+\end_inset
+
+.
+ 称
+\begin_inset Formula $(u_{j},x_{j},y_{j})$
+\end_inset
+
+为
+\begin_inset Formula $K$
+\end_inset
+
+的奇异系;
+\end_layout
+
+\begin_layout Enumerate
+定理: 
+\begin_inset Formula $F(\delta,E,||x'||_{L^{2}})\le\sqrt{\delta E}$
+\end_inset
+
+, 
+\begin_inset Formula $F(\delta,E,||x''||_{L^{2}})\le\delta^{\frac{2}{3}}E^{\frac{1}{3}}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+定理: 
+\begin_inset Formula $K:X\to Y$
+\end_inset
+
+是线性紧算子, 
+\begin_inset Formula $X,Y$
+\end_inset
+
+是Hilbert空间, 
+\begin_inset Formula $K$
+\end_inset
+
+有稠密的值域, 共轭算子
+\begin_inset Formula $K^{*}:Y\to X$
+\end_inset
+
+, 则:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+若
+\begin_inset Formula $X_{1}:=K^{*}(Y)$
+\end_inset
+
+, 
+\begin_inset Formula $||x||_{1}:=||(K^{*})^{-1}x||_{Y},x\in X_{1}$
+\end_inset
+
+, 则:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $F(\delta,E,||\cdot||_{1})\le\sqrt{\delta E}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+存在
+\begin_inset Formula $\delta_{n}\to0$
+\end_inset
+
+, 使得
+\begin_inset Formula $F(\delta_{n},E,||\cdot||_{1})=\sqrt{\delta_{n}E}$
+\end_inset
+
+;
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+若
+\begin_inset Formula $X_{2}:=K^{*}K(X)$
+\end_inset
+
+, 
+\begin_inset Formula $||x||_{2}:=||(K^{*}K)^{-1}x||_{X},x\in X_{2}$
+\end_inset
+
+, 则:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $F(\delta,E,||\cdot||_{2})\le\delta^{\frac{2}{3}}E^{\frac{1}{3}}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\exists\delta_{n}\to0$
+\end_inset
+
+, 
+\begin_inset Formula $s.t.:F(\delta_{n},E,||\cdot||_{2})=\delta_{n}^{\frac{2}{3}}E^{\frac{1}{3}}$
+\end_inset
+
+;
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+例题: 对于
+\begin_inset Formula $\begin{cases}
+\frac{\partial u(x,t)}{\partial t}=\frac{\partial^{2}u(x,t)}{\partial x^{2}} & x\in[0,\pi],t>0\\
+u(0,t)=u(\pi,t)=0 & u(x,0)=u_{0}(x)
+\end{cases}$
+\end_inset
+
+有精确解
+\begin_inset Formula $u(x,t)=\frac{2}{\pi}\sum\limits _{n=1}^{\infty}e^{-n^{2}t}\sin(nx)\cdot\int_{0}^{\pi}u_{0}(y)\sin(ny)dy$
+\end_inset
+
+
+\begin_inset Formula $:=\sum\limits _{n=1}^{\infty}a_{n}\cdot e^{-n^{2}t}\sin(nx)$
+\end_inset
+
+, 其中
+\begin_inset Formula $a_{n}=\frac{2}{\pi}\int_{0}^{\pi}u_{0}(y)\sin(ny)dy$
+\end_inset
+
+.
+ 已知
+\begin_inset Formula $u(x,T)$
+\end_inset
+
+, 逆求
+\begin_inset Formula $u(x,\tau),\tau<T$
+\end_inset
+
+;
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+解可写成
+\begin_inset Formula $u(x,t)=\frac{2}{\pi}\int_{0}^{\pi}K(x,y)u_{0}(y)dy$
+\end_inset
+
+, 其中
+\begin_inset Formula $K(x,y)=\sum\limits _{n=1}^{\infty}e^{-n^{2}t}\sin(nx)\sin(ny)$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Quote
+若
+\begin_inset Formula $\tau\in(0,T)$
+\end_inset
+
+, 则
+\begin_inset Formula $F(\delta,E,||\cdot||_{1})\le E^{1-\frac{\tau}{T}}\delta^{\frac{\tau}{T}}$
+\end_inset
+
+;
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+例题: 数值微分
+\begin_inset Formula $N(t)=\begin{cases}
+\frac{1}{h}[y(t+h)-y(t)] & t\in(0,\frac{1}{2})\\
+\frac{1}{h}[y(t)-y(t-h)] & t\in(\frac{1}{2},1)
+\end{cases}$
+\end_inset
+
+, 计算
+\begin_inset Formula $||N(t)-y'||_{L^{2}},y\in H^{2}(0,1)$
+\end_inset
+
+;
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+\begin_inset Formula $y(t\pm h)=y(t)\pm y'(t)h+\int_{t}^{t+h}(t\pm h-s)y''(s)ds$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Quote
+当
+\begin_inset Formula $t\in(0,\frac{1}{2})$
+\end_inset
+
+时, 
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+\begin_inset Formula $N(t)-y'(t)=\frac{1}{h}\int_{t}^{t+h}(t+h-s)y''(s)ds$
+\end_inset
+
+, 令
+\begin_inset Formula $\tau=t+h-s$
+\end_inset
+
+, 则
+\begin_inset Formula $N(t)-y'(t)=\frac{1}{h}\int_{0}^{h}y''(t+h-\tau)\tau d\tau$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Quote
+\begin_inset Formula $h^{2}\int_{0}^{\frac{1}{2}}|N(t)-y'(t)|^{2}dt=$
+\end_inset
+
+
+\begin_inset Formula $\int_{0}^{\frac{1}{2}}\int_{0}^{h}y''(t+h-\tau)\tau d\tau\cdot\int_{0}^{h}sy''(t+h-s)dsdt$
+\end_inset
+
+
+\begin_inset Formula $=\int_{0}^{h}\int_{0}^{h}\tau s\left[\frac{y''(t+h-\tau)}{y''(t+h-s)}dt\right]d\tau ds$
+\end_inset
+
+
+\begin_inset Formula $\le\int_{0}^{h}\int_{0}^{h}\tau sd\tau ds\frac{\left[\int_{0}^{\frac{1}{2}}y''(t+h-\tau)^{2}dt\right]^{\frac{1}{2}}}{\left[\int_{0}^{\frac{1}{2}}y''(t+h-\tau s)dt\right]^{\frac{1}{2}}}$
+\end_inset
+
+
+\begin_inset Formula $=\left[\int_{0}^{h}\int_{0}^{h}\tau sd\tau ds\right]||y''||_{L^{2}(0,\frac{1}{2})}^{2}$
+\end_inset
+
+
+\begin_inset Formula $=||y''||_{L^{2}(0,\frac{1}{2})}^{2}\cdot\frac{h^{4}}{4}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Quote
+得到
+\begin_inset Formula $\int_{0}^{\frac{1}{2}}|N(t)-y'(t)|^{2}dt\le=||y''||_{L^{2}(0,\frac{1}{2})}\cdot\frac{h^{2}}{4}$
+\end_inset
+
+
+\begin_inset Formula $\le\frac{1}{\sqrt{2}}Eh$
+\end_inset
+
+;
+\end_layout
+
+\end_deeper
+\begin_layout Quote
+当
+\begin_inset Formula $t\in(\frac{1}{2},1)$
+\end_inset
+
+时, 
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+得到
+\begin_inset Formula $\int_{\frac{1}{2}}^{1}|N(t)-y'(t)|^{2}dt\le=||y''||_{L^{2}(0,\frac{1}{2})}\cdot\frac{h^{2}}{4}$
+\end_inset
+
+;
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Section
+第一类积分方程的正则化方法
+\end_layout
+
+\begin_layout Enumerate
+正则化策略(正则化方法): 对于线性积分算子(紧算子)
+\begin_inset Formula $K:X\to Y$
+\end_inset
+
+, 
+\begin_inset Formula $Kx=y$
+\end_inset
+
+, 
+\begin_inset Formula $\dim X=\infty$
+\end_inset
+
+.
+ 近似已知
+\begin_inset Formula $y\approx y^{\delta}$
+\end_inset
+
+即
+\begin_inset Formula $||y-y^{\delta}||\le\delta$
+\end_inset
+
+, 求解
+\begin_inset Formula $Kx^{\delta}=y^{\delta}$
+\end_inset
+
+.
+ 由于
+\begin_inset Formula $K^{-1}$
+\end_inset
+
+无界, 所以用有界线性算子族
+\begin_inset Formula $R_{\alpha}\approx K^{-1}$
+\end_inset
+
+, 其中
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+为参数, 
+\begin_inset Formula $R_{\alpha}$
+\end_inset
+
+称为正则化算子.
+ 有界线性算子族
+\begin_inset Formula $R_{\alpha}$
+\end_inset
+
+称为一个正则化策略.
+ 
+\begin_inset Formula $R_{\alpha}:Y\to X$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+, 满足
+\begin_inset Formula $\lim\limits _{\alpha\to0}R_{\alpha}Kx=x,\forall x$
+\end_inset
+
+(即
+\begin_inset Formula $R_{\alpha}K$
+\end_inset
+
+逐点收敛于
+\begin_inset Formula $I$
+\end_inset
+
+);
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\exists\alpha_{j},s.t.||R_{\alpha_{j}}||\to\infty$
+\end_inset
+
+, 
+\begin_inset Formula $j\to\infty$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $R_{\alpha}K$
+\end_inset
+
+不一致收敛于
+\begin_inset Formula $I$
+\end_inset
+
+;
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Young不等式: 
+\begin_inset Formula $||f+g||_{p}\le||f||_{1}\cdot||g||_{p}$
+\end_inset
+
+, 
+\begin_inset Formula $1\le p\le2$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+例题: 取
+\begin_inset Formula $\alpha=h$
+\end_inset
+
+, 中心差分
+\begin_inset Formula $R_{h}y(t):=\begin{cases}
+\frac{1}{h}\left[4y(t+\frac{h}{2})-y(t+h)-3y(t)\right] & 0<t<\frac{h}{2}\\
+\frac{1}{h}\left[y(t+\frac{h}{2})-y(t-\frac{h}{2})\right] & \frac{h}{2}\le t\le1-\frac{h}{2}\\
+\frac{1}{h}\left[3y(t)-y(t-h)-4y(t-\frac{h}{2})\right] & 1-\frac{h}{2}<t\le1
+\end{cases}$
+\end_inset
+
+, 证明
+\begin_inset Formula $R_{h}$
+\end_inset
+
+就是一个正则化策略.
+ 即证明:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $||R_{h}K||_{L^{2}(0,1)}\le C$
+\end_inset
+
+, 即
+\begin_inset Formula $R_{h}K$
+\end_inset
+
+一致有界;
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+\begin_inset Formula $R_{h}y(t)=\frac{1}{h}\int_{t-\frac{h}{2}}^{t+\frac{h}{2}}y'(s)ds$
+\end_inset
+
+
+\begin_inset Formula $=\frac{1}{h}\int_{-\frac{h}{2}}^{\frac{h}{2}}y'(r+t)dr$
+\end_inset
+
+, 其中
+\begin_inset Formula $s:=r+t$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Quote
+\begin_inset Formula $||R_{h}y(t)||_{L^{2}(\frac{h}{2},1-\frac{h}{2})}^{2}=\int_{\frac{h}{2}}^{1-\frac{h}{2}}|R_{h}y(t)|^{2}dt$
+\end_inset
+
+
+\begin_inset Formula $=\frac{1}{h^{2}}\int_{\frac{h}{2}}^{1-\frac{h}{2}}\left[\int_{-\frac{h}{2}}^{\frac{h}{2}}y'(r+t)dr\right]^{2}dt$
+\end_inset
+
+
+\begin_inset Formula $\le\frac{1}{h^{2}}\int_{\frac{h}{2}}^{1-\frac{h}{2}}||y'||_{L^{2}(0,1)}^{2}\cdot\left(\int_{-\frac{h}{2}}^{\frac{h}{2}}ds\right)^{2}dt$
+\end_inset
+
+
+\begin_inset Formula $=\int_{\frac{h}{2}}^{1-\frac{h}{2}}dt\cdot||y'||_{L^{2}(0,1)}^{2}$
+\end_inset
+
+
+\begin_inset Formula $\le||y'||_{L^{2}(0,1)}^{2}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Quote
+所以
+\begin_inset Formula $||R_{h}Kx||_{L^{2}(0,1)}=||R_{h}y(t)||_{L^{2}(0,1)}$
+\end_inset
+
+
+\begin_inset Formula $\le||y'||_{L^{2}(0,1)}$
+\end_inset
+
+, 即
+\begin_inset Formula $R_{h}K$
+\end_inset
+
+一致有界.
+ 其他区间同理;
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $||R_{\alpha}Kx-x||_{L^{2}(0,1)}\to0$
+\end_inset
+
+, 即逐点收敛;
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+由Tylor公式: 
+\begin_inset Formula $y(t\pm\frac{h}{2})=y(t)\pm\frac{h}{2}y'(t)+\frac{1}{2}\frac{h^{2}}{4}y''(t)+\frac{1}{2}\int_{0}^{\frac{h}{2}}s^{2}y'''(t\pm\frac{h}{2}-s)ds$
+\end_inset
+
+;
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+得: 
+\begin_inset Formula $R_{h}y(t)-y'(t)=\frac{1}{2h}\int_{0}^{\frac{h}{2}}s^{2}\left[y'''(t+\frac{h}{2}-s)-y'''(t-\frac{h}{2}-s)\right]ds$
+\end_inset
+
+
+\begin_inset Formula $\le\frac{1}{2h}\left(\int_{0}^{\frac{h}{2}}s^{2}ds\right)\cdot2||y'''||_{L^{2}(0,1)}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Quote
+\begin_inset Formula $\int_{\frac{h}{2}}^{1-\frac{h}{2}}|R_{h}y(t)-y'(t)|^{2}dt$
+\end_inset
+
+
+\begin_inset Formula $\le\frac{1}{h^{2}}\int_{\frac{h}{2}}^{1-\frac{h}{2}}\left(\int_{0}^{\frac{h}{2}}s^{2}ds\right)^{2}\cdot||y'''||_{L^{2}(0,1)}^{2}dt$
+\end_inset
+
+
+\begin_inset Formula $=\frac{h^{4}}{24^{2}}||y'''||_{L^{2}(0,1)}^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+所以
+\begin_inset Formula $||R_{h}y-y'||_{L^{2}(0,1)}=$
+\end_inset
+
+
+\begin_inset Formula $||R_{\alpha}Kx-x||_{L^{2}(0,1)}$
+\end_inset
+
+
+\begin_inset Formula $\le C_{1}||x''(t)||_{L^{2}(0,1)}h^{2}$
+\end_inset
+
+
+\begin_inset Formula $\le C_{1}Eh^{2}$
+\end_inset
+
+, 当
+\begin_inset Formula $h\to0$
+\end_inset
+
+时
+\begin_inset Formula $||R_{h}y-y'||_{L^{2}(0,1)}\to0$
+\end_inset
+
+.
+ 其他区间同理;
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+例题: 对于
+\begin_inset Formula $Kx=\int_{0}^{t}x(s)ds$
+\end_inset
+
+, 
+\begin_inset Formula $K:L_{0}^{2}(0,1)\to L^{2}(0,1)$
+\end_inset
+
+, 
+\begin_inset Formula $L_{0}^{2}(0,1)=\{z\in L^{2}(0,1):\int_{0}^{1}z(s)ds=0\}$
+\end_inset
+
+.
+ Gauss核
+\begin_inset Formula $\psi_{\alpha}(t)=\frac{1}{\alpha\sqrt{\pi}}e^{-\frac{t^{2}}{\alpha^{2}}}$
+\end_inset
+
+, 
+\begin_inset Formula $\int_{-\infty}^{+\infty}\psi_{\alpha}(t)dt=1$
+\end_inset
+
+, 
+\begin_inset Formula $||\psi_{\alpha}'||_{L^{1}}=\frac{2}{\alpha\sqrt{\pi}}$
+\end_inset
+
+.
+ 定义
+\begin_inset Formula $\psi_{\alpha}*y:=\int_{-\infty}^{+\infty}\psi_{\alpha}(t-s)y(s)ds$
+\end_inset
+
+
+\begin_inset Formula $=\int_{-\infty}^{+\infty}\psi_{\alpha}(s)y(t-s)ds$
+\end_inset
+
+, 由Young不等式
+\begin_inset Formula $||\psi_{\alpha}*y||_{L^{2}}\le||\psi_{\alpha}||_{L^{1}}\cdot||y||_{L^{2}}$
+\end_inset
+
+
+\begin_inset Formula $=||y||_{L^{2}}$
+\end_inset
+
+知卷积算子是一致有界算子.
+ 证明
+\begin_inset Formula $K$
+\end_inset
+
+是一个正则化策略:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+准备知识: 
+\begin_inset Formula $||\psi_{\alpha}*z-z||_{L^{2}}\to0$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha\to0$
+\end_inset
+
+, 
+\begin_inset Formula $z\in L^{2}(0,1)$
+\end_inset
+
+, 
+\begin_inset Formula $||\psi_{\alpha}*z-z||_{L^{2}(\mathbb{R})}\le\sqrt{2}\alpha||z'||_{L^{2}(0,1)}$
+\end_inset
+
+;ß
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+定义
+\begin_inset Formula $\mathcal{F}z(t):=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}z(s)e^{-ist}ds$
+\end_inset
+
+, 则
+\begin_inset Formula $\mathcal{F}z'(t)=(-it)\mathcal{F}z(t)$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Quote
+\begin_inset Formula $||\psi_{\alpha}*z-z||_{L^{2}(\mathbb{R})}=||\mathcal{F}(\psi_{\alpha}*z)-\mathcal{F}(z)||_{L^{2}(\mathbb{R})}$
+\end_inset
+
+
+\begin_inset Formula $=||[\sqrt{2\pi}\mathcal{F}(\psi_{\alpha})-1]\mathcal{F}(z)||_{L^{2}(\mathbb{R})}$
+\end_inset
+
+
+\begin_inset Formula $=||\psi_{\alpha}(t)it\mathcal{F}(z')||_{L^{2}(\mathbb{R})}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Quote
+\begin_inset Formula $\psi_{\alpha}(t)=\frac{1}{it}(1-e^{-\frac{\alpha^{2}t^{2}}{4}})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+所以
+\begin_inset Formula $||\psi_{\alpha}*z-z||_{L^{2}(\mathbb{R})}=||\psi_{\alpha}\mathcal{F}(z')||_{L^{2}}$
+\end_inset
+
+
+\begin_inset Formula $\le||\psi_{\alpha}||_{\infty}\cdot||z'||_{L^{2}(0,1)}$
+\end_inset
+
+;
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+证明:
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+\begin_inset Formula $||R_{\alpha}y||_{L^{2}(0,1)}\le\left\{ \int_{0}^{1}\left[(\psi_{\alpha}'*y)(t)-\int_{0}^{1}(\psi_{\alpha}'*y)(s)ds\right]^{2}dt\right\} ^{\frac{1}{2}}$
+\end_inset
+
+
+\begin_inset Formula $\le2||\psi_{\alpha}'||_{L^{1}(\mathbb{R})}\cdot||y||_{L^{2}(0,1)}$
+\end_inset
+
+
+\begin_inset Formula $\le\frac{4}{\alpha\sqrt{\pi}}||y||_{L^{2}(0,1)}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Quote
+取
+\begin_inset Formula $y=Kx$
+\end_inset
+
+, 
+\begin_inset Formula $||R_{\alpha}Kx||_{L^{2}(0,1)}$
+\end_inset
+
+
+\begin_inset Formula $\le2||\psi_{\alpha}*x(t)||_{L^{2}(0,1)}$
+\end_inset
+
+
+\begin_inset Formula $\le2||\psi_{\alpha}||_{L^{2}(\mathbb{R})}\cdot||x(t)||_{L^{2}(0,1)}$
+\end_inset
+
+
+\begin_inset Formula $=2||x(t)||_{L^{2}(0,1)}$
+\end_inset
+
+, 则
+\begin_inset Formula $||R_{\alpha}Kx||_{L^{2}(0,1)}\le2||x(t)||_{L^{2}(0,1)}$
+\end_inset
+
+, 即
+\begin_inset Formula $R_{\alpha}K$
+\end_inset
+
+一致有界;
+\end_layout
+
+\begin_layout Quote
+\begin_inset Formula $R_{\alpha}Kx(t)-x(t)$
+\end_inset
+
+
+\begin_inset Formula $=\psi_{\alpha}*x(t)-\int_{0}^{1}(\psi_{\alpha}*x)ds-x(t)$
+\end_inset
+
+
+\begin_inset Formula $=(\psi_{\alpha}*x)(t)-x(t)-\int_{0}^{1}[(\psi_{\alpha}*x)(s)-x(s)]ds$
+\end_inset
+
+, 所以
+\begin_inset Formula $||R_{\alpha}Kx-x||_{L^{2}(0,1)}\le2||\psi_{\alpha}*x(t)-x(t)||_{L^{2}(0,1)}$
+\end_inset
+
+
+\begin_inset Formula $\le2\sqrt{2}\alpha||x'||_{L^{2}(0,1)}$
+\end_inset
+
+;
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+设线性紧算子
+\begin_inset Formula $K$
+\end_inset
+
+的滤波函数
+\begin_inset Formula $q(\alpha,\mu)$
+\end_inset
+
+满足: (1).
+ 
+\begin_inset Formula $|q(\alpha,\mu)|\le1$
+\end_inset
+
+, 
+\begin_inset Formula $0<\mu<||K||$
+\end_inset
+
+; (2).
+ 
+\begin_inset Formula $\exists C(\alpha)$
+\end_inset
+
+, s.t.
+\begin_inset Formula $|q(\alpha,\mu)|\le C(\alpha)\mu$
+\end_inset
+
+, 
+\begin_inset Formula $\forall\mu$
+\end_inset
+
+; (3).
+ 
+\begin_inset Formula $\lim\limits _{\alpha\to0}q(\alpha,\mu)=1$
+\end_inset
+
+, 
+\begin_inset Formula $\forall\mu$
+\end_inset
+
+.
+ 则
+\begin_inset Formula $R_{\alpha}:Y\to X$
+\end_inset
+
+, 
+\begin_inset Formula $R_{\alpha}y:=\sum\limits _{j=1}^{\infty}\frac{q(\alpha,\mu)}{\mu_{j}}(y,y_{j})x_{j}$
+\end_inset
+
+, 
+\begin_inset Formula $y\in Y$
+\end_inset
+
+是一个正则化策略, 且
+\begin_inset Formula $||R_{\alpha}||\le C(\alpha)$
+\end_inset
+
+;
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+其中
+\begin_inset Formula $(\mu_{j},x_{j},y_{j})$
+\end_inset
+
+是算子
+\begin_inset Formula $R_{\alpha}$
+\end_inset
+
+的奇异系;
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+引理: 对于Hilbert空间
+\begin_inset Formula $X,Y$
+\end_inset
+
+, 
+\begin_inset Formula $\exists\hat{x}\in X$
+\end_inset
+
+, 
+\begin_inset Formula $s.t.$
+\end_inset
+
+
+\begin_inset Formula $||K\hat{x}-y||\le||Kx-y||,x\in X$
+\end_inset
+
+等价于
+\begin_inset Formula $K^{*}K\hat{x}=K^{*}y$
+\end_inset
+
+(法方程);
+\end_layout
+
+\begin_layout Enumerate
+Tikhonov正则化方法: 求解Tikhonov泛函的极小问题;
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Tikhonov泛函: 对于线性紧算子
+\begin_inset Formula $K:X\to Y$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+, 
+\begin_inset Formula $J_{\alpha}(x)=||Kx-y||^{2}+\alpha||x||^{2}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $J_{\alpha}(x)$
+\end_inset
+
+的极小值问题有唯一解
+\begin_inset Formula $x^{\alpha}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+极小化
+\begin_inset Formula $x^{\alpha}$
+\end_inset
+
+是法方程
+\begin_inset Formula $\alpha x^{\alpha}+K^{*}Kx^{\alpha}=K^{*}y$
+\end_inset
+
+的唯一解;
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+定义
+\begin_inset Formula $R_{\alpha}:=(\alpha I+K^{*}K)^{-1}K^{*}$
+\end_inset
+
+, 对于线性紧算子
+\begin_inset Formula $K:X\to Y$
+\end_inset
+
+, 有
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\alpha I+K^{*}K$
+\end_inset
+
+有有界逆, 则
+\begin_inset Formula $R_{\alpha}$
+\end_inset
+
+是正则化策略.
+ 
+\begin_inset Formula $||R_{\alpha}||\le\frac{1}{2\sqrt{\alpha}}$
+\end_inset
+
+, 
+\begin_inset Formula $R_{\alpha}y^{\delta}$
+\end_inset
+
+满足
+\begin_inset Formula $(\alpha I+K^{*}K)x^{\alpha,\delta}=K^{*}y^{\delta}$
+\end_inset
+
+.
+ 当
+\begin_inset Formula $\alpha(\delta)\to0,\delta\to0,\frac{\delta^{2}}{\alpha(\delta)}\to0$
+\end_inset
+
+时, 
+\begin_inset Formula $\alpha(\delta)$
+\end_inset
+
+是容许的;
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x=K^{*}z\in K^{*}(Y)$
+\end_inset
+
+, 取
+\begin_inset Formula $\alpha(\delta)=c\frac{\delta}{E}$
+\end_inset
+
+时, 
+\begin_inset Formula $||x^{\alpha,\delta}-x||\le\frac{1}{2}(\frac{1}{\sqrt{c}}+\sqrt{c})\sqrt{\delta E}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x=K^{*}Kz\in K^{*}K(x)$
+\end_inset
+
+, 取
+\begin_inset Formula $\alpha(\delta)=c(\frac{\delta}{E})^{\frac{2}{3}}$
+\end_inset
+
+时, 
+\begin_inset Formula $||x^{\alpha,\delta}-x||\le(\frac{1}{2\sqrt{c}}+c)E^{\frac{1}{3}}\delta^{\frac{2}{3}}$
+\end_inset
+
+;
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Landeweber迭代: 对于
+\begin_inset Formula $Kx=y$
+\end_inset
+
+, 
+\begin_inset Formula $x=x-aK^{*}Kx+aK^{*}y=(I-aK^{*}K)x+aK^{*}y$
+\end_inset
+
+, 
+\begin_inset Formula $a>0$
+\end_inset
+
+.
+ 即迭代格式
+\begin_inset Formula $\begin{cases}
+x^{0}=0\\
+x^{m}=(I-aK^{*}K)x^{m-1}+aK^{*}y & m=1,2...
+\end{cases}$
+\end_inset
+
+;
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+设
+\begin_inset Formula $\psi:X\to R$
+\end_inset
+
+, 
+\begin_inset Formula $\psi(x)=\frac{1}{2}||Kx-y||^{2}$
+\end_inset
+
+, 则
+\begin_inset Formula $\psi(x)$
+\end_inset
+
+的Frechet导数
+\begin_inset Formula $\psi'(z)x=Re(Kz-y,Kx)=Re(K^{*}(Kz-y),x)$
+\end_inset
+
+, 
+\begin_inset Formula $xz\in X$
+\end_inset
+
+.
+ 因此, 
+\begin_inset Formula $\psi'(z)$
+\end_inset
+
+可以由
+\begin_inset Formula $K^{*}(Kz-y)$
+\end_inset
+
+得到, 即Landweber迭代
+\begin_inset Formula $x^{m}=x^{m-1}-aK^{*}(Kx^{m-1}-y)$
+\end_inset
+
+;
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+已知线性紧算子
+\begin_inset Formula $K:X\to Y$
+\end_inset
+
+, 取
+\begin_inset Formula $\alpha=\frac{1}{m}$
+\end_inset
+
+, 则
+\begin_inset Formula $R_{m}$
+\end_inset
+
+就是正则化策略, 且
+\begin_inset Formula $||R_{m}||\le C(\alpha)=\sqrt{\frac{a}{\alpha}}=\sqrt{am}$
+\end_inset
+
+;
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $m(\delta)\to0,(\delta\to0),$
+\end_inset
+
+且
+\begin_inset Formula $\frac{\delta^{2}}{\alpha(\delta)}\to0$
+\end_inset
+
+, 则
+\begin_inset Formula $m(\delta)$
+\end_inset
+
+是容许的;
+\end_layout
+
+\end_deeper
+\end_body
+\end_document
